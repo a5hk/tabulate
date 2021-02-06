@@ -1,13 +1,20 @@
 {
   "name": "tabulate",
   "displayName": "Tabulate",
-  "description": "table layout",
+  "description": "Tabulates Javascript objects",
   "version": "0.0.1",
+  "publisher": "a5hk",
+  "icon": "icon.png",
   "engines": {
     "vscode": "^1.53.0"
   },
+  "homepage": "https://github.com/a5hk/tabulate",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/a5hk/tabulate"
+  },
   "categories": [
-    "Other"
+    "Formatters"
   ],
   "activationEvents": [
     "onCommand:tabulate.tabulate"

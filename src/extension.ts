@@ -11,41 +11,32 @@ export function activate(context: vscode.ExtensionContext) {
       return;
     }
 
-    const lines = te.document.getText(te.selection).split("\n");
-    let maxLen = lines.reduce((accum, current) => {
-      return current.trim().length > accum ? current.trim().length : accum;
-    }, lines[0].trim().length);
+    const minPadLen = 10;
+    let maxLen = 0;
+    for (let l = te.selection.start.line; l <= te.selection.end.line; l++) {
+      if (te.document.lineAt(l).text.indexOf(":") > maxLen) {
+        maxLen = te.document.lineAt(l).text.indexOf(":");
+      }
+    }
 
-    for (const line of lines) {
-      if (line.trim().length < maxLen && line.trim().length + 4 > maxLen) {
-        maxLen += 4;
+    for (let l = te.selection.start.line; l <= te.selection.end.line; l++) {
+      if (te.document.lineAt(l).text.indexOf(":") + minPadLen > maxLen) {
+        maxLen += minPadLen;
         break;
       }
     }
 
-    let i = 0;
     let line = "";
-    let l = 2;
+    for (let l = te.selection.start.line; l <= te.selection.end.line; l++) {
+      line = te.document.lineAt(l).text;
 
-    for (l = 2; i < 3; l++) {
-      // if (line.trim().length < maxLen) {
-      // line = te.document.lineAt(l).text;
-      console.log(l);
-      // tee.insert(new vscode.Position(l, line.indexOf(":") + 1), `/*${".".repeat(maxLen - line.trim().length)}*/`);
-      // }
+      if (line.indexOf(":") !== -1) {
+        tee.insert(
+          new vscode.Position(l, line.indexOf(":") + 1),
+          ` /* ...${".".repeat(maxLen - line.indexOf(":") - minPadLen)} */`
+        );
+      }
     }
-
-    // for (const line of lines) {
-    // for (let l = te.selection.start.line; i < te.selection.end.line; l++) {
-    // for (l = 2; i < 3; l++) {
-    //   // if (line.trim().length < maxLen) {
-    //   // line = te.document.lineAt(l).text;
-    //   console.log(l);
-    //   // tee.insert(new vscode.Position(l, line.indexOf(":") + 1), `/*${".".repeat(maxLen - line.trim().length)}*/`);
-    //   // }
-    // }
-
-    // tee.insert(te.selection.start, "***");
   });
 
   context.subscriptions.push(tabulateCommand);
