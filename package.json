@@ -2,7 +2,7 @@
   "name": "tabulate",
   "displayName": "Tabulate",
   "description": "Tabulates Javascript objects",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "a5hk",
   "icon": "icon.png",
   "engines": {
