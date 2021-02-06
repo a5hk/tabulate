@@ -2,7 +2,7 @@
 
 Tabulates Javascript objects or every text that is separated by `:`.
 
-![Demo](demo.gif)
+![Demo](https://github.com/a5hk/tabulate/raw/main/demo.gif)
 
 ## License
 
