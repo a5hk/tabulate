@@ -39,7 +39,25 @@ export function activate(context: vscode.ExtensionContext) {
     }
   });
 
-  context.subscriptions.push(tabulateCommand);
+  let unTabulateCommand = vscode.commands.registerTextEditorCommand("tabulate.untabulate", (te, tee) => {
+    let re = /:\s*\/\*.*\*\/(?=.*\S)/;
+
+    for (let l = te.selection.start.line; l <= te.selection.end.line; l++) {
+      let result = re.exec(te.document.lineAt(l).text);
+
+      if (result !== null) {
+        tee.replace(
+          new vscode.Range(
+            new vscode.Position(l, result.index),
+            new vscode.Position(l, result.index + result[0].length)
+          ),
+          ":"
+        );
+      }
+    }
+  });
+
+  context.subscriptions.push(tabulateCommand, unTabulateCommand);
 }
 
 export function deactivate() {}

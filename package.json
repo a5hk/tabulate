@@ -2,7 +2,7 @@
   "name": "tabulate",
   "displayName": "Tabulate",
   "description": "Tabulates Javascript objects",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "publisher": "a5hk",
   "icon": "icon.png",
   "engines": {
@@ -17,7 +17,8 @@
     "Formatters"
   ],
   "activationEvents": [
-    "onCommand:tabulate.tabulate"
+    "onCommand:tabulate.tabulate",
+    "onCommand:tabulate.untabulate"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -25,6 +26,10 @@
       {
         "command": "tabulate.tabulate",
         "title": "Tabulate"
+      },
+      {
+        "command": "tabulate.untabulate",
+        "title": "Un-Tabulate"
       }
     ]
   },
