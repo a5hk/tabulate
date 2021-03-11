@@ -57,7 +57,13 @@ export function activate(context: vscode.ExtensionContext) {
     }
   });
 
-  context.subscriptions.push(tabulateCommand, unTabulateCommand);
+  let retabulateCommand = vscode.commands.registerTextEditorCommand("tabulate.retabulate", (te, tee) => {
+    vscode.commands.executeCommand("tabulate.untabulate").then(() => {
+      vscode.commands.executeCommand("tabulate.tabulate");
+    });
+  });
+
+  context.subscriptions.push(tabulateCommand, unTabulateCommand, retabulateCommand);
 }
 
 export function deactivate() {}
