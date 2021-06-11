@@ -2,11 +2,11 @@
   "name": "tabulate",
   "displayName": "Tabulate",
   "description": "Tabulates Javascript objects",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "publisher": "a5hk",
   "icon": "icon.png",
   "engines": {
-    "vscode": "^1.53.0"
+    "vscode": "^1.57.0"
   },
   "homepage": "https://github.com/a5hk/tabulate",
   "repository": {
@@ -16,6 +16,11 @@
   "categories": [
     "Formatters"
   ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": true
+    }
+  },
   "activationEvents": [
     "onCommand:tabulate.tabulate",
     "onCommand:tabulate.untabulate",
