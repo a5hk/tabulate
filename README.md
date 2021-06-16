@@ -1,10 +1,16 @@
 # [Tabulate](https://marketplace.visualstudio.com/items?itemName=a5hk.tabulate)
 
-Tabulates Javascript objects. There are three commands `Tabulate`, `Un-Tabulate`, and `Re-Tabulate`.
+Tabulates Javascript objects. There are five commands `Tabulate`, `Tabulate Right`, `Un-Tabulate`, `Re-Tabulate` and `Re-Tabulate Right`.
 
 ## Tabulate
 
+To left align values:
 ![Tabulate](demo/tab.gif)
+
+## Tabulate Right
+
+To right align values:
+![Tabulate Right](demo/right.gif)
 
 ## Un-Tabulate
 

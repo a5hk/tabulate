@@ -1,5 +1,8 @@
 # Change Log
 
+## 0.4.0
+- Two new commands, Tabulate Right and Re-Tabulate Right to right align the values.
+
 ## 0.3.0
 
 - Updated to support the latest VS Code version, this extension is supported in an untrusted workspace (see [here](https://code.visualstudio.com/updates/v1_57#_workspace-trust)).
