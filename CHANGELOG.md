@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.5.0
+
+- Added support for VS Code Web
+
 ## 0.4.0
 - Two new commands, Tabulate Right and Re-Tabulate Right to right align the values.
 
